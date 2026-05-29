@@ -2782,13 +2782,17 @@ console.log('Farming Goals feature loaded. Use window.FarmingGoalsFeature to acc
     }, [session]);
     const canEdit = userRole === "admin" || userRole === "write";
     const isAdmin = userRole === "admin";
-    const signIn = () => {
-      if (!sbClient) return;
-      sbClient.auth.signInWithOAuth({
-        provider: "google",
-        options: { redirectTo: "https://capillary-cs-hub.netlify.app" }
-      });
-    };
+    //const signIn = () => {
+      //if (!sbClient) return;
+      //sbClient.auth.signInWithOAuth({
+        //provider: "google",
+        //options: { redirectTo: "https://capillary-cs-hub.netlify.app" }
+      //});
+    //};
+      const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password,
+})
     const signOut = () => {
       if (!sbClient) return;
       sbClient.auth.signOut();
