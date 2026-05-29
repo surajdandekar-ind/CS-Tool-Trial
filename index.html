@@ -337,8 +337,8 @@ var _unused = (() => {
     for(let i=3;i>=0;i--){const d=new Date(now);d.setDate(d.getDate()-(i*14));const mon=MONTHS_ARR[d.getMonth()];const yr=String(d.getFullYear()).slice(2);const reviewNum=d.getDate()<=14?1:2;sessions.push({title:'Fortnightly Review '+reviewNum+' \u2013 '+mon+"'"+yr,date:d.toISOString().slice(0,10),notes:{risk:[],update:[],win:[]},items:[]});}
     return sessions;
   }
-  const SUPABASE_URL = "https://cngzvyrrahqgikhaykbm.supabase.co";
-  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNuZ3p2eXJyYWhxZ2lraGF5a2JtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NzcxNTMsImV4cCI6MjA4NzU1MzE1M30.0JPNge9GpeSK5Yu0Inul0GSKWskGy5vLco4v_34zQ0o";
+  const SUPABASE_URL = "https://aitodiusbiomahnuecqe.supabase.co/rest/v1/";
+  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpdG9kaXVzYmlvbWFobnVlY3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMTA3MTYsImV4cCI6MjA5NTU4NjcxNn0.dxujjsssWytQAISNSY3Y9fDm3PjhFocg6ejnRm8BJ7U";
   const sbClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
   async function loadFromSupabase() {
     if (!sbClient) return null;
