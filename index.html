@@ -5717,13 +5717,17 @@ var _unused = (() => {
     const isNPSEditor = effectiveRole === "admin" || effectiveRole === "pm";
     const isRealAdmin = userRole === "admin";
     const canEditClient = useCallback(function(clientId) { return isAdmin || isPM || (effectiveRole === "account_lead" && assignedAccounts.includes(clientId)); }, [isAdmin, isPM, effectiveRole, assignedAccounts]);
-    const signIn = () => {
-      if (!sbClient) return;
-      sbClient.auth.signInWithOAuth({
-        provider: "google",
-        options: { redirectTo: "https://capillary-cs.github.io/capillary-cs-hub" }
-      });
-    };
+    //const signIn = () => {
+      //if (!sbClient) return;
+      //sbClient.auth.signInWithOAuth({
+        //provider: "google",
+        //options: { redirectTo: "https://capillary-cs.github.io/capillary-cs-hub" }
+      //});
+    //};
+    const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password,
+})
     const signOut = () => {
       if (!sbClient) return;
       sbClient.auth.signOut();
